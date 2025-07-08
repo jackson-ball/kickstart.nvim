@@ -407,6 +407,24 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
+        defaults = {
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden', -- ✅ include hidden files like `.github/`
+            '--glob=!**/.git/*', -- ✅ still exclude .git
+          },
+        },
+        pickers = {
+          find_files = {
+            hidden = true, -- ✅ include hidden files in :Telescope find_files
+          },
+        },
         -- defaults = {
         --   mappings = {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
